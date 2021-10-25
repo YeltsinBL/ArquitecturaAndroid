@@ -2,9 +2,14 @@ package com.yeltsin.arquitectura_android
 
 /*
 *
+*ANALIZAR:
+* MODEL
+* VIEW - CONTROLLER
 *
 * MainActivity.kt
-val rvCoupons: RecyclerView = findViewById(R.id.rvCoupons)
+
+//< VIEW - CONTROLLER>
+val rvCoupons: RecyclerView = findViewById(R.id.rvCoupons) //UI
 rvCoupons.layoutManager = LinearLayoutManager(this)
 val coupons = ArrayList<Coupon>()
 
@@ -30,7 +35,9 @@ call.enqueue(object : Callback<JsonObject> {
 
 
 })
+//</VIEW - CONTROLLER>
 
+//< Model>  Network Resource
 
 val apiKey = "69d1837829128f9565368ca704c63207"
 val urlApi = "http://feed.linkmydeals.com/"
@@ -66,10 +73,11 @@ interface ApiService {
     @GET("getOffers/")
     fun getCoupons(): Call<JsonObject>
 }
+//</Model>  Network Resource
 
 
 CouponDetailActivity.java
-
+//< VIEW - CONTROLLER>
         couponSelected = intent.getSerializableExtra("COUPON") as Coupon
 
         var tvTitleDetail: TextView = findViewById(R.id.tvTitleDetail)
@@ -101,5 +109,6 @@ CouponDetailActivity.java
             openURL.data = Uri.parse(couponSelected?.url)
             startActivity(openURL)
         }
+//</VIEW - CONTROLLER>
 
 * */
