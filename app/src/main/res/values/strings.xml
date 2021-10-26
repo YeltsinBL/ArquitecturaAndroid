@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Arquitectura_Android</string>
+    <string name="offer_Text">OfferText</string>
+    <string name="endDate">EndDate</string>
+    <string name="categoria">Category</string>
+    <string name="title">Title</string>
+    <string name="btnIrWeb">Obtén esta Oferta</string>
 </resources>
