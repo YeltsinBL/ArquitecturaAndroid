@@ -1,4 +1,4 @@
-package com.yeltsin.arquitectura_android
+package com.yeltsin.arquitectura_android.view
 
 
 import android.content.Intent
@@ -9,11 +9,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.squareup.picasso.Picasso
+import com.yeltsin.arquitectura_android.Model.Coupon
+import com.yeltsin.arquitectura_android.R
 import de.hdodenhof.circleimageview.CircleImageView
 
 class CouponDetailActivity : AppCompatActivity() {
 
-    private var couponSelected:Coupon?=null
+    private var couponSelected: Coupon?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

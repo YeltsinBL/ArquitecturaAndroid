@@ -1,4 +1,4 @@
-package com.yeltsin.arquitectura_android
+package com.yeltsin.arquitectura_android.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,10 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
+import com.yeltsin.arquitectura_android.Model.Coupon
 import com.yeltsin.arquitectura_android.Model.ApiAdapter
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.yeltsin.arquitectura_android.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

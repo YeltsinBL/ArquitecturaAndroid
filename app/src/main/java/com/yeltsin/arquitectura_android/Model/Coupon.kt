@@ -1,4 +1,4 @@
-package com.yeltsin.arquitectura_android
+package com.yeltsin.arquitectura_android.Model
 
 import com.google.gson.JsonObject
 import java.lang.Exception

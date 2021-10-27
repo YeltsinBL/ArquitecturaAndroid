@@ -1,4 +1,4 @@
-package com.yeltsin.arquitectura_android
+package com.yeltsin.arquitectura_android.view
 
 import android.content.Intent
 import android.util.Log
@@ -9,6 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import com.yeltsin.arquitectura_android.Model.Coupon
+import com.yeltsin.arquitectura_android.R
 
 class RecyclerCouponsAdapter(var coupons : ArrayList<Coupon>, var resource: Int) : RecyclerView.Adapter<RecyclerCouponsAdapter.CardCouponHolder>() {
 
