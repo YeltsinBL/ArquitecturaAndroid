@@ -1,8 +1,8 @@
 # Arquitectura Android
 ## _Proyecto donde utilizaré las arquitecturas de Arquitectura: MVC - MVP - MVVM_
 
-Iré creando por ramas todas las arquitecturas y al final pasaré a master
-la que más me he adaptado y gustado para seguir aprendiendo.
+Iré creando por ramas todas las arquitecturas y al final, cuando terminde de hacer
+las 3 arquitecturas, dejaré en master la que más me he adaptado y gustado para seguir aprendiendo.
 
 - MVVM
 - MVP
