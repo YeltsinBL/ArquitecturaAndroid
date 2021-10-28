@@ -10,13 +10,21 @@ import com.google.gson.JsonParser
 import com.yeltsin.arquitectura_android.Model.Coupon
 import com.yeltsin.arquitectura_android.Model.ApiAdapter
 import com.yeltsin.arquitectura_android.R
+import com.yeltsin.arquitectura_android.presenter.CouponPresenter
+import com.yeltsin.arquitectura_android.presenter.CouponPresenterImpl
+//Implementamos la funcionalidad del CouponView
+class MainActivity : AppCompatActivity(), CouponView {
 
-class MainActivity : AppCompatActivity() {
+    private var couponPresenter: CouponPresenter?= null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         //Ocultar el bar superior
         supportActionBar?.hide()
+
+        //Instanciamos el objeto
+        //couponPresenter = CouponPresenterImpl()
 
         //< VIEW>
         val rvCoupons: RecyclerView = findViewById(R.id.rvCoupons) //UI
@@ -68,5 +76,13 @@ class MainActivity : AppCompatActivity() {
         //</VIEW>
 
 
+    }
+
+    override fun getCoupons() {
+        TODO("Not yet implemented")
+    }
+
+    override fun showCoupons(coupons: ArrayList<Coupon>) {
+        TODO("Not yet implemented")
     }
 }
