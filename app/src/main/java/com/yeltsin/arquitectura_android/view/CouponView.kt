@@ -1,5 +1,6 @@
 package com.yeltsin.arquitectura_android.view
 
+import android.content.Context
 import com.yeltsin.arquitectura_android.Model.Coupon
 
 interface CouponView {
@@ -7,7 +8,7 @@ interface CouponView {
      *  Función que irá al Presenter
      *  Obtenemos los Coupons
      *  */
-    fun getCoupons()
+    fun getCoupons(context: Context)
 
     /**
      *  Función que irá a la Vista
@@ -16,5 +17,5 @@ interface CouponView {
      *  @param coupons Recibe una lista de Coupon
      *
      *  */
-    fun showCoupons(coupons: ArrayList<Coupon>)
+    fun showCoupons(coupons: ArrayList<Coupon>?)
 }

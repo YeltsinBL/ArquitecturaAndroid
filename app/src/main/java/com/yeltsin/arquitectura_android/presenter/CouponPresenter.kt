@@ -1,5 +1,6 @@
 package com.yeltsin.arquitectura_android.presenter
 
+import android.content.Context
 import com.yeltsin.arquitectura_android.Model.Coupon
 
 interface CouponPresenter {
@@ -16,11 +17,11 @@ interface CouponPresenter {
      *  @param coupons Recibe una lista de Coupon
      *
      *  */
-    fun showCoupons(coupons: ArrayList<Coupon>)
+    fun showCoupons(coupons: ArrayList<Coupon>?)
 
     /**
      *  Función que irá al interactor
      * */
-    fun getCoupons()
+    fun getCoupons(context: Context)
 
 }
