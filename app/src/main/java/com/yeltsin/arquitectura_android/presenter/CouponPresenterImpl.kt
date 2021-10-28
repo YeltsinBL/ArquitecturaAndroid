@@ -6,6 +6,8 @@ import com.yeltsin.arquitectura_android.view.CouponView
                         //Inyección de Dependencia  -  Implementamos la interfaz
 class CouponPresenterImpl(var couponView: CouponView): CouponPresenter {
 
+   //private var couponInteractor: Co
+
     override fun showCoupons(coupons: ArrayList<Coupon>) {
         TODO("Not yet implemented")
     }
