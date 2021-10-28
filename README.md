@@ -5,7 +5,9 @@ Iré creando por ramas todas las arquitecturas y al final, cuando terminde de ha
 las 3 arquitecturas, dejaré en master la que más me he adaptado y gustado para seguir aprendiendo.
 
 - MVVM
-- MVP
+- MVP: Proyecto terminado (27/10/2021)
+    - Creé una carpeta Presenter donde Agregué el puente de conexión entre la Vista y el Modelo de datos.
+    - Se movió el código que estaba en el Main hacia el repositorio que es donde se hará la conexión que traerá los datos.
 - MVC : Proyecto terminado (25/10/2021)
     - Creé una carpeta Model  donde Agregué el Api Adapter para hacer la petición a un servidor o para leer un archivo json y, Api Service para agregar el metodo GET de la conexión http.
 
