@@ -4,12 +4,9 @@ import android.content.Context
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
-import com.yeltsin.arquitectura_android.R
-import com.yeltsin.arquitectura_android.presenter.CouponPresenter
-import com.yeltsin.arquitectura_android.view.RecyclerCouponsAdapter
 
 //Agregamos el presenter para poder comunicarnos con la interfaz
-class CouponsRepositoryImpl(var couponPresenter: CouponPresenter): CouponsRepository {
+class CouponsRepositoryImpl(): CouponsRepository {
 
     /**
      * Logica de la Conexión
@@ -56,6 +53,6 @@ class CouponsRepositoryImpl(var couponPresenter: CouponPresenter): CouponsReposi
             var coupon = Coupon(jsonObject)
             coupons?.add(coupon)
         }
-        couponPresenter.showCoupons(coupons)
+        
     }
 }
