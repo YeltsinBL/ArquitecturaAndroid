@@ -53,6 +53,6 @@ class CouponsRepositoryImpl(): CouponsRepository {
             var coupon = Coupon(jsonObject)
             coupons?.add(coupon)
         }
-        
+
     }
 }

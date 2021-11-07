@@ -9,7 +9,7 @@ import com.yeltsin.arquitectura_android.Model.Coupon
 import com.yeltsin.arquitectura_android.R
 
 //Implementamos la funcionalidad del CouponView
-class MainActivity : AppCompatActivity(), CouponView {
+class MainActivity : AppCompatActivity() {
 
     private var rvCoupons: RecyclerView? = null
 
@@ -26,16 +26,8 @@ class MainActivity : AppCompatActivity(), CouponView {
 
         //</VIEW>
 
-        getCoupons(applicationContext)
 
     }
 
-    override fun getCoupons(context: Context) {
 
-    }
-
-    override fun showCoupons(coupons: ArrayList<Coupon>?) {
-
-        rvCoupons?.adapter = RecyclerCouponsAdapter(coupons, R.layout.card_coupon)
-    }
 }
