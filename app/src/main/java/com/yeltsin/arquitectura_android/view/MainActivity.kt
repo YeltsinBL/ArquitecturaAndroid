@@ -1,11 +1,9 @@
 package com.yeltsin.arquitectura_android.view
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.yeltsin.arquitectura_android.Model.Coupon
 import com.yeltsin.arquitectura_android.R
 
 //Implementamos la funcionalidad del CouponView
