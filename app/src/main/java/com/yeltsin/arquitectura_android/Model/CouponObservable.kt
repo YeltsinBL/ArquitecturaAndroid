@@ -5,8 +5,13 @@ import androidx.databinding.BaseObservable
 //Conexión directa con el Repository y ViewModel
 class CouponObservable: BaseObservable() {
 
-    //Repository
+    //Instancia del Repositorio
+    private var couponsRepository: CouponsRepository = CouponsRepositoryImpl()
 
+    //Repository
+    fun callCoupon(){
+    couponsRepository.callCouponsApi()
+    }
 
 
 
