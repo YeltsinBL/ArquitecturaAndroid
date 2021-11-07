@@ -1,6 +1,7 @@
 package com.yeltsin.arquitectura_android.Model
 
 import androidx.databinding.BaseObservable
+import androidx.lifecycle.MutableLiveData
 
 //Conexión directa con el Repository y ViewModel
 class CouponObservable: BaseObservable() {
@@ -10,11 +11,12 @@ class CouponObservable: BaseObservable() {
 
     //Repository
     fun callCoupon(){
-    couponsRepository.callCouponsApi()
+        couponsRepository.callCouponsApi()
     }
 
-
-
     //ViewModel
+    fun getCoupons(): MutableLiveData<List<Coupon>> {
+        return couponsRepository.getCoupons()
+    }
 
 }

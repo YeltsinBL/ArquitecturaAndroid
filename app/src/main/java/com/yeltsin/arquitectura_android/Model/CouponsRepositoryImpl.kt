@@ -16,12 +16,12 @@ class CouponsRepositoryImpl(): CouponsRepository {
     //Creamos una lista con LiveData para que se pueda refrescar
     private var coupons = MutableLiveData<List<Coupon>>()
 
-    //Obtenemos los Coupons
-    override fun getCouponsApi() {
-
+    //Devolvemos los Coupons
+    override fun getCoupons(): MutableLiveData<List<Coupon>> {
+        return coupons
     }
 
-    //Cambiamos el nombre de get por call
+
     //Aqui se llamará los datos
     /**
      * Logica de la Conexión
