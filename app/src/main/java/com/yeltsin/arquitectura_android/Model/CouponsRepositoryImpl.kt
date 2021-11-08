@@ -46,6 +46,7 @@ class CouponsRepositoryImpl(): CouponsRepository {
                     var coupon = Coupon(jsonObject)
                     couponsList?.add(coupon)
                 }
+                Log.w("CouponsList", couponsList?.get(0)?.title ?: "Vacio")
                 //VIEW
                 //Agregamos el couponsList al MutableLiveData
                 coupons.value = couponsList

@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 
 class ApiAdapter {
-    val apiKey = "Tu Api Key"
+    val apiKey = "00bcfba611d86fcc9d30a0f7b9fe46ad"
     val urlApi = "http://feed.linkmydeals.com/"
 
     fun getClientService(): ApiService {
