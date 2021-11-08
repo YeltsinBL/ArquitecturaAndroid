@@ -19,8 +19,6 @@ class MainActivity : AppCompatActivity() {
 
 
         //< VIEW>
-        rvCoupons = findViewById(R.id.rvCoupons) //UI
-        rvCoupons?.layoutManager = LinearLayoutManager(this)
 
         //</VIEW>
 
