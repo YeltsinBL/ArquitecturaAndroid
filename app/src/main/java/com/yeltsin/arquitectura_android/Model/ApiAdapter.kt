@@ -1,19 +1,14 @@
 package com.yeltsin.arquitectura_android.Model
 
 import android.content.Context
-import android.util.Log
-import com.google.gson.Gson
-import com.google.gson.JsonObject
-import com.google.gson.JsonParser
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 
 class ApiAdapter {
-    val apiKey = "00bcfba611d86fcc9d30a0f7b9fe46ad"
+    val apiKey = "USA TU CLAVE"
     val urlApi = "http://feed.linkmydeals.com/"
 
     fun getClientService(): ApiService {

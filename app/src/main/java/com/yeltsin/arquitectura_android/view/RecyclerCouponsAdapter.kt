@@ -1,64 +1,72 @@
 package com.yeltsin.arquitectura_android.view
 
-import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
+import com.yeltsin.arquitectura_android.BR
 import com.yeltsin.arquitectura_android.Model.Coupon
-import com.yeltsin.arquitectura_android.R
+import com.yeltsin.arquitectura_android.viewmodel.CouponViewModel
 
-class RecyclerCouponsAdapter(var coupons : ArrayList<Coupon>?, var resource: Int) : RecyclerView.Adapter<RecyclerCouponsAdapter.CardCouponHolder>() {
+class RecyclerCouponsAdapter( var couponViewModel: CouponViewModel, var resource: Int) : RecyclerView.Adapter<RecyclerCouponsAdapter.CardCouponHolder>() {
+
+    private var coupons: List<Coupon>? = null
+    //Agregamos el metodo para recibir la lista de Coupons
+    fun setCouponsList(coupons: List<Coupon>?){
+        Log.w("CouponsViewHolder", coupons?.get(0)?.title ?: "setCouponsList")
+
+        this.coupons = coupons
+    }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): CardCouponHolder {
-        var view: View = LayoutInflater.from(p0!!.context).inflate(resource, p0, false)
-        return CardCouponHolder(view)
+        Log.w("CouponsViewHolder", "Llega")
+        //Inicializamos el layout inflater
+        var layoutInflater: LayoutInflater = LayoutInflater.from(p0.context)
+        //Rellenamos el binding p1= ViewType, p0=ViewGroup y false para que no lo adjunte al padre
+        var binding: ViewDataBinding = DataBindingUtil.inflate(layoutInflater, p1, p0, false)
+        //Habilitamos todos los componentes view del CardCouponHolder para que funcionen con el Binding
+        return  CardCouponHolder(binding)
     }
 
     override fun getItemCount(): Int {
+        Log.w("CouponsViewHolderSize", coupons?.size.toString() )
         return coupons?.size ?: 0
     }
 
     override fun onBindViewHolder(p0: CardCouponHolder, p1: Int) {
-        var coupon = coupons?.get(p1)
-        p0.setDataCard(coupon)
+        p0.setDataCard(couponViewModel, p1)
     }
 
-    class CardCouponHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
+    //Se utilizará cuando se pasa los recursos de manera independiente
+    override fun getItemViewType(position: Int): Int {
+        return getLayoutIdForPosition(position)
+    }
 
-        private var coupon: Coupon? = null
-        private var imgCoupon: ImageView = v.findViewById(R.id.imgCoupon)
-        private var tvTitle: TextView = v.findViewById(R.id.tvTitle)
-        private var tvDescriptionShort: TextView = v.findViewById(R.id.tvDescriptionShort)
-        private var tvCategory: TextView = v.findViewById(R.id.tvCategory)
-        private var tvDate: TextView = v.findViewById(R.id.tvDate)
+    private fun getLayoutIdForPosition(position: Int): Int{
+        return resource
+    }
+
+    class CardCouponHolder(binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root){
+
+        private var binding: ViewDataBinding? = null
 
         init {
-            v.setOnClickListener(this)
+            this.binding = binding
         }
 
-        fun setDataCard(coupon: Coupon?){
-            this.coupon = coupon
-            Picasso.get().load(coupon?.image_url).resize(520, 520).centerCrop().into(imgCoupon)
-            tvTitle.setText(coupon?.title)
-            tvDescriptionShort.setText(coupon?.descriptionShort)
-            tvCategory.setText(coupon?.category)
-            tvDate.setText(coupon?.endDate)
+        fun setDataCard(couponViewModel: CouponViewModel, position: Int){
+            Log.w("CouponsDataCard", "Llega")
+            //Se conecta con el activity_main
+            binding?.setVariable(BR.model, couponViewModel)
+            Log.w("CouponsDataCard", couponViewModel.getCoupons().value?.get(0)?.category ?: "No llega")
+            //Se conecta con el card_coupon
+            binding?.setVariable(BR.position, position)
+            binding?.executePendingBindings()
 
         }
 
-        override fun onClick(v: View) {
-            Log.i("CLICK Coupon: ", coupon?.title.toString())
-            val context = v.context
-            val showPhotoIntent = Intent(context, CouponDetailActivity::class.java)
-            showPhotoIntent.putExtra("COUPON", coupon)
-            context.startActivity(showPhotoIntent)
-
-        }
 
     }
 

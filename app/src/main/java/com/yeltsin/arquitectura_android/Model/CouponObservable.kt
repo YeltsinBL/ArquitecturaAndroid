@@ -1,5 +1,7 @@
 package com.yeltsin.arquitectura_android.Model
 
+import android.content.Context
+import android.util.Log
 import androidx.databinding.BaseObservable
 import androidx.lifecycle.MutableLiveData
 
@@ -14,8 +16,13 @@ class CouponObservable: BaseObservable() {
         couponsRepository.callCouponsApi()
     }
 
+    fun callCouponJson(context: Context){
+        couponsRepository.callCouponsJson(context)
+    }
+
     //ViewModel
     fun getCoupons(): MutableLiveData<List<Coupon>> {
+        Log.w("CouponsObservableGet", "Llegó al Get")
         return couponsRepository.getCoupons()
     }
 

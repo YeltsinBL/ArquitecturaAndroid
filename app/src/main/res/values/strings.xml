@@ -5,4 +5,6 @@
     <string name="categoria">Category</string>
     <string name="title">Title</string>
     <string name="btnIrWeb">Obtén esta Oferta</string>
+    <string name="lista_de_ofertas">Lista de Ofertas</string>
+    <string name="todo">TODO</string>
 </resources>

@@ -6,5 +6,6 @@ import androidx.lifecycle.MutableLiveData
 interface CouponsRepository {
     fun getCoupons(): MutableLiveData<List<Coupon>>
     fun callCouponsApi()
+    fun callCouponsJson(context: Context)
 
 }

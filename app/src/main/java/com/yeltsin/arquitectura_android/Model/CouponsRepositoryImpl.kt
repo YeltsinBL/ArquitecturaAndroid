@@ -18,6 +18,7 @@ class CouponsRepositoryImpl(): CouponsRepository {
 
     //Devolvemos los Coupons
     override fun getCoupons(): MutableLiveData<List<Coupon>> {
+        Log.w("CouponsRepository", coupons.value?.get(0)?.title ?: "Llegó al getCoupons")
         return coupons
     }
 
@@ -51,25 +52,36 @@ class CouponsRepositoryImpl(): CouponsRepository {
                 //Agregamos el couponsList al MutableLiveData
                 coupons.value = couponsList
 
-
             }
-
-
         })
         //</CONTROLLER>
+
+    }
+
+    //Aqui se llamará los datos
+    /**
+     * Leemos un archivo Json para obtener sus datos
+     * */
+    override fun callCouponsJson(context: Context) {
+        //< CONTROLLER>
+        var couponsList: ArrayList<Coupon>? = ArrayList<Coupon>()
+        var apiAdapter = ApiAdapter()
 
         /**
          * Utilizamos la funcion de leer Json y lo convertimos en un JsonObject
          * que lo mandaremos a la clase Coupon para que empiece a llenar los datos
          * */
-//        val jsonFileString = apiAdapter.getJsonDataFromAsset(context)
-//        var jsonObjectAlt: JsonObject = JsonParser.parseString(jsonFileString).asJsonObject
-//        val offersJsonArray = jsonObjectAlt.getAsJsonArray("offers")
-//        offersJsonArray?.forEach { jsonElement: JsonElement ->
-//            var jsonObject = jsonElement.asJsonObject
-//            var coupon = Coupon(jsonObject)
-//            coupons?.add(coupon)
-//        }
+        var jsonFileString = apiAdapter.getJsonDataFromAsset(context)
+        var jsonObjectAlt: JsonObject = JsonParser.parseString(jsonFileString).asJsonObject
+        var offersJsonArray = jsonObjectAlt.getAsJsonArray("offers")
+        offersJsonArray?.forEach { jsonElement: JsonElement ->
+            var jsonObject = jsonElement.asJsonObject
+            var coupon = Coupon(jsonObject)
+            couponsList?.add(coupon)
+        }
+        Log.w("CouponsJsonList", couponsList?.get(0)?.title ?: "Vacio")
+        //Agregamos el couponsList al MutableLiveData
+        coupons.value = couponsList
 
     }
 
