@@ -19,6 +19,7 @@ class CouponViewModel:ViewModel() {
     //Instancia del Observable
     private var couponObservable: CouponObservable = CouponObservable()
     private var recyclerCouponsAdapter: RecyclerCouponsAdapter? = null
+    var selected:MutableLiveData<Coupon> = MutableLiveData<Coupon>()
 
     /**
      * Llamada de los Coupons
@@ -75,5 +76,12 @@ class CouponViewModel:ViewModel() {
                     Picasso.get().load(it).into(imageView)
             }
         }
+    }
+    fun getCouponSelected(): MutableLiveData<Coupon> {
+        return selected
+    }
+    fun onItemClick(index: Int){
+        val coupon = getCouponAt(index)
+        selected.value = coupon
     }
 }
