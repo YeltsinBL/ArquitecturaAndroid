@@ -1,5 +1,6 @@
 package com.yeltsin.arquitectura_android.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -54,14 +55,17 @@ class MainActivity : AppCompatActivity() {
             couponViewModel?.setCouponsInRecyclerAdapter(coupons)
             Log.w("CouponsMA", coupons[0].title)
         })
-        setupListClick()
+        //setupListClick()
     }
-    fun setupListClick() {
-        couponViewModel?.getCouponSelected()?.observe(this,
-            Observer {coupon: Coupon ->
-                Log.i("CLICK", coupon.title)
-
-            })
-    }
+//    fun setupListClick() {
+//        couponViewModel?.getCouponSelected()?.observe(this,
+//            Observer {coupon: Coupon ->
+//                Log.i("CLICK", coupon.title)
+//                couponViewModel?.setCouponInRecyclerAdapter(coupon)
+////                val showPhotoIntent = Intent(this, CouponDetailActivity::class.java)
+////                showPhotoIntent.putExtra("COUPON", coupon)
+////                this.startActivity(showPhotoIntent)
+//            })
+//    }
 
 }

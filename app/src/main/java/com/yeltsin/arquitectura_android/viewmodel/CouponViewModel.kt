@@ -47,7 +47,11 @@ class CouponViewModel:ViewModel() {
         recyclerCouponsAdapter?.notifyDataSetChanged()
         Log.w("CouponsVM", coupons[0].descriptionShort)
     }
-
+    fun setCouponInRecyclerAdapter(coupons: Coupon){
+        recyclerCouponsAdapter?.setCoupon(coupons)
+        recyclerCouponsAdapter?.notifyDataSetChanged()
+        Log.w("CouponsVM", coupons.descriptionShort)
+    }
     /**
      * Devuelve los cupones en el Adapter
      **/
@@ -77,11 +81,11 @@ class CouponViewModel:ViewModel() {
             }
         }
     }
-    fun getCouponSelected(): MutableLiveData<Coupon> {
-        return selected
-    }
-    fun onItemClick(index: Int){
-        val coupon = getCouponAt(index)
-        selected.value = coupon
-    }
+//    fun getCouponSelected(): MutableLiveData<Coupon> {
+//        return selected
+//    }
+//    fun onItemClick(index: Int){
+//        val coupon = getCouponAt(index)
+//        selected.value = coupon
+//    }
 }

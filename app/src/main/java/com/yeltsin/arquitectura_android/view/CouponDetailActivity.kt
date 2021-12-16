@@ -46,8 +46,11 @@ class CouponDetailActivity : AppCompatActivity() {
         tvWebsiteDetailData.text = couponSelected?.website
         tvDateEndData.text = couponSelected?.endDate
 
-        Picasso.get().load(couponSelected?.image_url).resize(520, 520).centerCrop().into(imgHeaderDetail)
-        Picasso.get().load(couponSelected?.image_url).resize(520, 520).centerCrop().into(imgCouponDetail)
+        if (couponSelected?.image_url!=""){
+            Picasso.get().load(couponSelected?.image_url).resize(520, 520).centerCrop().into(imgHeaderDetail)
+            Picasso.get().load(couponSelected?.image_url).resize(520, 520).centerCrop().into(imgCouponDetail)
+        }
+
 
         btnOpenOffer.setOnClickListener {
             val openURL = Intent(Intent.ACTION_VIEW)
