@@ -4,7 +4,8 @@
 Iré creando por ramas todas las arquitecturas y al final, cuando terminde de hacer
 las 3 arquitecturas, dejaré en master la que más me he adaptado y gustado para seguir aprendiendo.
 
-- MVVM
+- MVVM: Proyecto terminado (16/12/2021)
+    - Eliminé la carpeta Presenter porque utilizaría los Observers y creé la carpeta ViewModel que este sería el puente para conectar los datos con el Observable.
 - MVP: Proyecto terminado (27/10/2021)
     - Creé una carpeta Presenter donde Agregué el puente de conexión entre la Vista y el Modelo de datos.
     - Se movió el código que estaba en el Main hacia el repositorio que es donde se hará la conexión que traerá los datos.
